@@ -190,6 +190,11 @@ func convert(srcFilePath, dstFilePath string) error {
 	if err != nil {
 		return err
 	}
+	
+	err = os.Chtimes(dstFilePath, cTime, uTime )
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
